@@ -6,5 +6,5 @@
 
 Установка:
 ```shell
-go get github.com/defany/logger
+go get github.com/defany/slogger
 ```
