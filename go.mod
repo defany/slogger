@@ -1,4 +1,4 @@
-module github.com/defany/logger
+module github.com/defany/slogger
 
 go 1.22
 

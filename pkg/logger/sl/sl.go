@@ -2,7 +2,7 @@ package sl
 
 import (
 	"fmt"
-	"github.com/defany/logger/pkg/logger/handlers/slogpretty"
+	"github.com/defany/slogger/pkg/logger/handlers/slogpretty"
 	"log/slog"
 	"os"
 )
