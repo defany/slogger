@@ -28,16 +28,16 @@ func NewSlogLogger(c Slog) *slog.Logger {
 	var h slog.Handler
 
 	switch c.Format {
-	case "pretty":
+	case "json":
+		h = slog.NewJSONHandler(w, o)
+	case "text":
+		h = slog.NewTextHandler(w, o)
+	default:
 		h = slogpretty.NewHandler().
 			WithAddSource(c.AddSource).
 			WithLevel(c.Level).
 			WithLevelEmoji(true).
 			WithFieldsFormat("json")
-	case "json":
-		h = slog.NewJSONHandler(w, o)
-	case "text":
-		h = slog.NewTextHandler(w, o)
 	}
 
 	return slog.New(h)
