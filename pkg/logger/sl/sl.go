@@ -2,15 +2,24 @@ package sl
 
 import (
 	"fmt"
-	"github.com/defany/slogger/pkg/logger/handlers/slogpretty"
 	"log/slog"
 	"os"
+
+	"github.com/defany/slogger/pkg/logger/handlers/slogpretty"
 )
 
 type Slog struct {
 	Level     slog.Level              `json:"level" env-default:"debug"`
 	AddSource bool                    `json:"add_source" env-default:"false"`
 	Format    slogpretty.FieldsFormat `json:"format" env-default:"pretty"` // json, text or pretty
+}
+
+func Default() *slog.Logger {
+	return NewSlogLogger(Slog{
+		Level:     slog.LevelDebug,
+		AddSource: false,
+		Format:    "pretty",
+	})
 }
 
 func NewSlogLogger(c Slog) *slog.Logger {
