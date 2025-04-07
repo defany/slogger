@@ -44,7 +44,7 @@ func NewSlogLogger(c Slog) *slog.Logger {
 }
 
 func Err(op string, err error) error {
-	return fmt.Errorf("%s: %w", op, err)
+	return fmt.Errorf("%s -> %w", op, err)
 }
 
 func ErrAttr(err error) slog.Attr {
