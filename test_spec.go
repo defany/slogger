@@ -4,7 +4,7 @@
   https://github.com/vektra/mockery/discussions/636
 */
 
-package auth_service
+package main
 
 func main() {
 
