@@ -2,11 +2,16 @@ package slerr
 
 import (
 	"fmt"
-	"github.com/defany/slogger/pkg/logger/sl"
 	"strings"
+
+	"github.com/defany/slogger/pkg/logger/sl"
 )
 
 func WithSource(err error, comments ...string) error {
+	if err == nil {
+		return nil
+	}
+
 	op := sl.FnName(1)
 
 	if len(comments) > 0 {
